@@ -1,0 +1,5 @@
+[env]
+FLATE_PATH = '{{config_root}}/kubernetes/apps'
+KUBECONFIG = "{{config_root}}/kubeconfig"
+TALOSCONFIG = "{{config_root}}/talosconfig"
+JUST_UNSTABLE = "1"

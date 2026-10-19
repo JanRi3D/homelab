@@ -1,0 +1,10 @@
+.claude/
+*.crt
+*.env
+*.iso
+*.key
+.decrypted~*
+.DS_Store
+Thumbs.db
+kubeconfig
+talosconfig

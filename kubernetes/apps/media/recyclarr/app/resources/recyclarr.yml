@@ -1,0 +1,115 @@
+---
+# yaml-language-server: $schema=https://raw.githubusercontent.com/recyclarr/recyclarr/refs/tags/v8.8.0/schemas/config-schema.json
+
+sonarr:
+  series:
+    base_url: http://sonarr.media.svc.cluster.local
+    api_key: !env_var SONARR_API_KEY
+    delete_old_custom_formats: true
+    media_management:
+      propers_and_repacks: do_not_prefer
+    media_naming:
+      episodes:
+        anime: default
+        daily: default
+        rename: true
+        standard: default
+      season: default
+      series: jellyfin-tvdb
+    quality_definition:
+      type: series
+
+    quality_profiles:
+      - trash_id: dca7e5e9e99c703bcbdaaa471dd40e98 # [German] HD Bluray + WEB
+        name: German 1080p
+        min_format_score: 10000
+        reset_unmatched_scores:
+          enabled: true
+      - trash_id: 3b0fa37fddaaefc931b75f2889d4b4f5 # [German] UHD Bluray + WEB
+        name: German 2160p
+        min_format_score: 10000
+        reset_unmatched_scores:
+          enabled: true
+      - trash_id: 6fe5937e1dcc2269e23b49eb46dfe6d6 # [German] Anime HD Bluray + WEB
+        name: Anime 1080p
+        reset_unmatched_scores:
+          enabled: true
+
+    custom_formats:
+      - trash_ids:
+          - 51ba9721e1d951e9ffccb3d939831941 # Not German, Japanese or English
+        assign_scores_to:
+          - name: Anime 1080p
+            score: 0
+      - trash_ids:
+          - 1d1481d01b60a0274d81685b3ccbf7d0 # Not German, Japanese, Korean, Chinese or English
+        assign_scores_to:
+          - name: Anime 1080p
+            score: -35000
+      - trash_ids:
+          - 21d4ae0976f7a4c251884d26fc46183c # German Subbed
+        assign_scores_to:
+          - name: Anime 1080p
+            score: 5000
+      - trash_ids:
+          - 82d40da2bc6923f41e14394075dd4b03 # No-RlsGroup
+          - e1a997ddb54e3ecbfe06341ad323c458 # Obfuscated
+          - 06d66ab109d4d2eddb2794d21526d140 # Retags
+        assign_scores_to:
+          - name: German 1080p
+          - name: German 2160p
+
+radarr:
+  movies:
+    base_url: http://radarr.media.svc.cluster.local
+    api_key: !env_var RADARR_API_KEY
+    delete_old_custom_formats: true
+    media_management:
+      propers_and_repacks: do_not_prefer
+    media_naming:
+      folder: jellyfin-tmdb
+      movie:
+        rename: true
+        standard: jellyfin-tmdb
+    quality_definition:
+      type: movie
+
+    quality_profiles:
+      - trash_id: 2b90e905c99490edc7c7a5787443748b # [German] HD Bluray + WEB
+        name: German 1080p
+        min_format_score: 10000
+        reset_unmatched_scores:
+          enabled: true
+      - trash_id: 27cc3d153c0a799fd139ef1ff4c4cc42 # [German] UHD Bluray + WEB
+        name: German 2160p
+        min_format_score: 10000
+        reset_unmatched_scores:
+          enabled: true
+      - trash_id: bf3cc2e99ad9a804a9b0d0e538e1fbba # [German] Anime HD Bluray + WEB
+        name: Anime 1080p
+        reset_unmatched_scores:
+          enabled: true
+
+    custom_formats:
+      - trash_ids:
+          - 532c4a41c94ae0f77c745ae478883c44 # Not German, Japanese or English
+        assign_scores_to:
+          - name: Anime 1080p
+            score: 0
+      - trash_ids:
+          - 9a8f58fae5df94783c214c0ed63f589c # Not German, Japanese, Korean, Chinese or English
+        assign_scores_to:
+          - name: Anime 1080p
+            score: -35000
+      - trash_ids:
+          - ee425f921dd740621523343bffe82fa3 # German Subbed
+        assign_scores_to:
+          - name: Anime 1080p
+            score: 5000
+      - trash_ids:
+          - ae9b7c9ebde1f3bd336a8cbd1ec4c5e5 # No-RlsGroup
+          - 7357cf5161efbf8c4d5d0c30b4815ee2 # Obfuscated
+          - 5c44f52a8714fdd79bb4d98e2673be1f # Retags
+        assign_scores_to:
+          - name: German 1080p
+          - name: German 2160p
