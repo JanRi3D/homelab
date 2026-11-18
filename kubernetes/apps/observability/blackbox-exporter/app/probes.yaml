@@ -36,3 +36,20 @@ spec:
   metricRelabelings:
     - targetLabel: service
       replacement: blackbox-exporter
+---
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/monitoring.coreos.com/probe_v1.json
+apiVersion: monitoring.coreos.com/v1
+kind: Probe
+metadata:
+  name: s3
+spec:
+  module: tcp_connect
+  prober:
+    url: blackbox-exporter.observability.svc.cluster.local:9115
+  targets:
+    staticConfig:
+      static:
+        - glados.internal:3900
+  metricRelabelings:
+    - targetLabel: service
+      replacement: blackbox-exporter
