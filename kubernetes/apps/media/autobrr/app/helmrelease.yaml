@@ -20,6 +20,11 @@ spec:
               repository: ghcr.io/autobrr/autobrr
               tag: v1.90.0@sha256:72bb5fe5e8c73f85660f92502d9015b21b07156495f039b55864633b9f8b7a89
             env:
+              AUTOBRR__AUTH_DISABLED: true
+              AUTOBRR__AUTH_DISABLED_ACKNOWLEDGEMENT: I_ACKNOWLEDGE_THIS_IS_A_BAD_IDEA
+              AUTOBRR__AUTH_ALLOWED_PEER_CIDRS: 10.42.0.0/16,10.0.20.0/24
+              AUTOBRR__AUTH_ALLOWED_HOSTS: autobrr.media.svc.cluster.local
+              AUTOBRR__CORS_ALLOWED_ORIGINS: https://autobrr.ri3d.me
               AUTOBRR__HOST: 0.0.0.0
               AUTOBRR__PORT: &port 80
               AUTOBRR__METRICS_ENABLED: true
