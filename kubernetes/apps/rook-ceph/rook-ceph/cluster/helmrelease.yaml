@@ -10,7 +10,7 @@ spec:
     spec:
       url: oci://ghcr.io/rook/rook-ceph-cluster
       ref:
-        tag: 1.21.2
+        tag: 1.21.3
   interval: 1h
   timeout: 10m
   values:
