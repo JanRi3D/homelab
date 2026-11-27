@@ -12,8 +12,20 @@ spec:
   values:
     controllers:
       jellyfin:
+        type: statefulset
         annotations:
           reloader.stakater.com/auto: "true"
+        statefulset:
+          podManagementPolicy: Parallel
+          volumeClaimTemplates:
+            - name: config
+              accessMode: ReadWriteOnce
+              size: 16Gi
+              storageClass: ceph-block
+              dataSourceRef:
+                apiGroup: kopiur.home-operations.com
+                kind: Restore
+                name: "{{ .Release.Name }}"
         containers:
           app:
             image:
@@ -83,8 +95,6 @@ spec:
           - name: envoy-external
             namespace: networking
     persistence:
-      config:
-        existingClaim: "{{ .Release.Name }}"
       cache:
         type: emptyDir
       media:
