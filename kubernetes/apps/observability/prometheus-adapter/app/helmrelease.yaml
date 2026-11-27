@@ -12,7 +12,8 @@ spec:
   values:
     logLevel: 1
     prometheus:
-      url: http://prometheus-operated.observability.svc.cluster.local
+      url: http://vmsingle-victoria-metrics.observability.svc.cluster.local
+      port: 8428
     rules:
       default: false
       external:
