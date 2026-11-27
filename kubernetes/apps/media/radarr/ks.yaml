@@ -6,7 +6,7 @@ metadata:
   name: radarr
 spec:
   components:
-    - ../../../../components/kopiur/backup
+    - ../../../../components/kopiur/statefulset
     - ../../../../components/zeroscaler
   interval: 1h
   path: ./kubernetes/apps/media/radarr/app
@@ -14,6 +14,7 @@ spec:
     substitute:
       APP: radarr
       KOPIUR_CAPACITY: 8Gi
+      CONTROLLER: StatefulSet
   prune: true
   sourceRef:
     kind: ExternalArtifact
