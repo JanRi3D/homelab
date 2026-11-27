@@ -14,7 +14,6 @@ spec:
     substitute:
       APP: radarr
       KOPIUR_CAPACITY: 8Gi
-      CONTROLLER: StatefulSet
   prune: true
   sourceRef:
     kind: ExternalArtifact

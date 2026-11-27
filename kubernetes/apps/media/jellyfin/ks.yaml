@@ -13,7 +13,6 @@ spec:
   postBuild:
     substitute:
       APP: jellyfin
-      CONTROLLER: StatefulSet
       KOPIUR_CAPACITY: 16Gi
   prune: true
   sourceRef:
