@@ -9,8 +9,8 @@ spec:
   path: ./kubernetes/apps/networking/certificates/import
   prune: true
   sourceRef:
-    kind: GitRepository
-    name: flux-system
+    kind: ExternalArtifact
+    name: certificates
     namespace: flux-system
   targetNamespace: networking
   wait: true
@@ -27,7 +27,7 @@ spec:
   path: ./kubernetes/apps/networking/certificates/export
   prune: true
   sourceRef:
-    kind: GitRepository
-    name: flux-system
+    kind: ExternalArtifact
+    name: certificates
     namespace: flux-system
   targetNamespace: networking

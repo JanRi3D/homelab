@@ -16,7 +16,7 @@ spec:
       KOPIUR_CAPACITY: 16Gi
   prune: true
   sourceRef:
-    kind: GitRepository
-    name: flux-system
+    kind: ExternalArtifact
+    name: jellyfin
     namespace: flux-system
   targetNamespace: media
