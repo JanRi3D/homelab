@@ -9,8 +9,8 @@ spec:
   path: ./kubernetes/apps/renovate/renovate-operator/app
   prune: true
   sourceRef:
-    kind: GitRepository
-    name: flux-system
+    kind: ExternalArtifact
+    name: renovate-operator
     namespace: flux-system
   targetNamespace: renovate
 ---
@@ -24,7 +24,7 @@ spec:
   path: ./kubernetes/apps/renovate/renovate-operator/jobs
   prune: true
   sourceRef:
-    kind: GitRepository
-    name: flux-system
+    kind: ExternalArtifact
+    name: renovate-operator
     namespace: flux-system
   targetNamespace: renovate
