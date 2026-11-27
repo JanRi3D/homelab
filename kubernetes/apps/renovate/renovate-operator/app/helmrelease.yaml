@@ -5,9 +5,12 @@ kind: HelmRelease
 metadata:
   name: renovate-operator
 spec:
-  chartRef:
+  chart:
     kind: OCIRepository
-    name: renovate-operator
+    spec:
+      url: oci://ghcr.io/mogenius/helm-charts/renovate-operator
+      ref:
+        tag: 6.9.0
   interval: 1h
   values:
     fullnameOverride: renovate-operator
