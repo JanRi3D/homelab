@@ -18,7 +18,7 @@ spec:
     appIdSecretKey: APP_ID
     installationIdSecretKey: INSTALL_ID
     pemSecretKey: PEM
-  image: ghcr.io/renovatebot/renovate:44.257.9
+  image: ghcr.io/renovatebot/renovate:45.3.2
   parallelism: 1
   provider:
     name: github
